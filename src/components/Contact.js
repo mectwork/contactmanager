@@ -16,10 +16,10 @@ export default class Contact extends Component {
   render() {
     return (
       <div className="container">
-        <div class="card mb-3">
-          <div class="card-header">
+        <div className="card mb-3">
+          <div className="card-header">
             <i
-              class="fas fa-sort-down mr-2"
+              className="fas fa-sort-down mr-2"
               style={{ cursor: "pointer" }}
               onClick={this.ToggleInfo}
             />
@@ -34,7 +34,7 @@ export default class Contact extends Component {
             />
           </div>
           {this.state.showInfo ? (
-            <div class="card-body">
+            <div className="card-body">
               <ul>
                 <li>
                   <strong>Email:</strong> {this.props.contact.email}
