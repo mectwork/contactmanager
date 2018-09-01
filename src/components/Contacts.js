@@ -29,11 +29,25 @@ export default class Contacts extends Component {
     };
   }
 
+  RemoveContact = id => {
+    const newContacts = this.state.contacts.filter(
+      contact => contact.id !== id
+    );
+
+    this.setState({
+      contacts: newContacts
+    });
+  };
+
   render() {
     return (
       <div>
         {this.state.contacts.map(contact => (
-          <Contact key={contact.id} contact={contact} />
+          <Contact
+            key={contact.id}
+            contact={contact}
+            removeContact={this.RemoveContact.bind(this, contact.id)}
+          />
         ))}
       </div>
     );

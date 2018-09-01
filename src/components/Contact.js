@@ -18,8 +18,20 @@ export default class Contact extends Component {
       <div className="container">
         <div class="card mb-3">
           <div class="card-header">
-            <i class="fas fa-sort-down mr-2" onClick={this.ToggleInfo} />
+            <i
+              class="fas fa-sort-down mr-2"
+              style={{ cursor: "pointer" }}
+              onClick={this.ToggleInfo}
+            />
             {this.props.contact.name}
+            <i
+              className="fas fa-times"
+              style={{ float: "right", color: "red", cursor: "pointer" }}
+              onClick={this.props.removeContact.bind(
+                this,
+                this.props.contact.id
+              )}
+            />
           </div>
           {this.state.showInfo ? (
             <div class="card-body">
