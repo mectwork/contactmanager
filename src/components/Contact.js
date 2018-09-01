@@ -4,15 +4,15 @@ export default class Contact extends Component {
   render() {
     return (
       <div className="container">
-        <div class="card">
-          <div class="card-header">Contact Name</div>
+        <div class="card mb-3">
+          <div class="card-header">{this.props.contact.name}</div>
           <div class="card-body">
             <ul>
               <li>
-                <strong>Email:</strong> themail@gmail.com
+                <strong>Email:</strong> {this.props.contact.email}
               </li>
               <li>
-                <strong>Phone:</strong> 456-456-465
+                <strong>Phone:</strong> {this.props.contact.phone}
               </li>
             </ul>
           </div>
