@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Consumer } from "../context";
 
 export default class Contact extends Component {
   constructor() {
@@ -13,40 +14,49 @@ export default class Contact extends Component {
       showInfo: !this.state.showInfo
     });
   };
+
+  RemoveContact = (id, dispatch) => {
+    dispatch({ type: "DELETE_CONTACT", payload: id });
+  };
   render() {
-    return (
-      <div className="container">
-        <div className="card mb-3">
-          <div className="card-header">
-            <i
-              className="fas fa-sort-down mr-2"
-              style={{ cursor: "pointer" }}
-              onClick={this.ToggleInfo}
-            />
-            {this.props.contact.name}
-            <i
-              className="fas fa-times"
-              style={{ float: "right", color: "red", cursor: "pointer" }}
-              onClick={this.props.removeContact.bind(
-                this,
-                this.props.contact.id
-              )}
-            />
-          </div>
-          {this.state.showInfo ? (
-            <div className="card-body">
-              <ul>
-                <li>
-                  <strong>Email:</strong> {this.props.contact.email}
-                </li>
-                <li>
-                  <strong>Phone:</strong> {this.props.contact.phone}
-                </li>
-              </ul>
+    return (      
+      <Consumer>
+        {value => (
+          <div className="container">
+            <div className="card mb-3">
+              <div className="card-header">
+                <i
+                  className="fas fa-sort-down mr-2"
+                  style={{ cursor: "pointer" }}
+                  onClick={this.ToggleInfo}
+                />
+                {this.props.contact.name}
+                <i
+                  className="fas fa-times"
+                  style={{ float: "right", color: "red", cursor: "pointer" }}
+                  onClick={this.RemoveContact.bind(
+                    this,
+                    this.props.contact.id,
+                    value.dispatch
+                  )}
+                />
+              </div>
+              {this.state.showInfo ? (
+                <div className="card-body">
+                  <ul>
+                    <li>
+                      <strong>Email:</strong> {this.props.contact.email}
+                    </li>
+                    <li>
+                      <strong>Phone:</strong> {this.props.contact.phone}
+                    </li>
+                  </ul>
+                </div>
+              ) : null}
             </div>
-          ) : null}
-        </div>
-      </div>
+          </div>
+        )}
+      </Consumer>
     );
   }
 }
