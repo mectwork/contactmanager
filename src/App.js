@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/layout/Header";
 import Contacts from "./components/Contacts";
 import { Provider } from "./context";
+import AddContact from "./components/AddContact";
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
       <Provider>
         <div className="App">
           <Header />
+          <AddContact />
           <Contacts />
         </div>
       </Provider>

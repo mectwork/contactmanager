@@ -12,6 +12,14 @@ const reducer = (state, action) => {
         )
       };
       break;
+    case "ADD_CONTACT":
+      action.payload.id = Math.floor(Math.random() * Math.floor(100000));
+      console.log(action.payload);
+      return {
+        ...state,
+        contacts: [action.payload, ...state.contacts]
+      };
+      break;
 
     default:
       return state;
