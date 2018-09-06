@@ -19,10 +19,10 @@ export default class Contact extends Component {
     dispatch({ type: "DELETE_CONTACT", payload: id });
   };
   render() {
-    return (      
+    return (
       <Consumer>
         {value => (
-          <div className="container">
+          <React.Fragment>
             <div className="card mb-3">
               <div className="card-header">
                 <i
@@ -54,7 +54,7 @@ export default class Contact extends Component {
                 </div>
               ) : null}
             </div>
-          </div>
+          </React.Fragment>
         )}
       </Consumer>
     );

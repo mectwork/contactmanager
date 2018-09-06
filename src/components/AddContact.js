@@ -28,7 +28,7 @@ class AddContact extends Component {
     return (
       <Consumer>
         {value => (
-          <div className="container">
+          <React.Fragment>
             <form onSubmit={this.saveForm.bind(this, value.dispatch)}>
               <div className="form-group">
                 <label htmlFor="name">Name:</label>
@@ -36,6 +36,7 @@ class AddContact extends Component {
                   className="form-control"
                   name="name"
                   type="text"
+                  required
                   value={this.state.name}
                   onChange={this.onFormChange}
                 />
@@ -46,6 +47,7 @@ class AddContact extends Component {
                   className="form-control"
                   name="email"
                   type="email"
+                  required
                   value={this.state.email}
                   onChange={this.onFormChange}
                 />
@@ -56,6 +58,7 @@ class AddContact extends Component {
                   className="form-control"
                   name="phone"
                   type="text"
+                  required
                   value={this.state.phone}
                   onChange={this.onFormChange}
                 />
@@ -68,7 +71,7 @@ class AddContact extends Component {
                 />
               </div>
             </form>
-          </div>
+          </React.Fragment>
         )}
       </Consumer>
     );

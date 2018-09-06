@@ -11,8 +11,10 @@ class App extends Component {
       <Provider>
         <div className="App">
           <Header />
-          <AddContact />
-          <Contacts />
+          <div className="container">
+            <AddContact />
+            <Contacts />
+          </div>
         </div>
       </Provider>
     );
