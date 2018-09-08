@@ -20,10 +20,14 @@ class AddContact extends Component {
       email: "",
       phone: ""
     });
+
+    this.props.history.push('/');
   };
+
   onFormChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   render() {
     return (
       <Consumer>
