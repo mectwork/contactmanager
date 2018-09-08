@@ -22,7 +22,7 @@ export default class Contact extends Component {
     return (
       <Consumer>
         {value => (
-          <React.Fragment>
+          <React.Fragment>            
             <div className="card mb-3">
               <div className="card-header">
                 <i

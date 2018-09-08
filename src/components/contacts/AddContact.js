@@ -29,6 +29,7 @@ class AddContact extends Component {
       <Consumer>
         {value => (
           <React.Fragment>
+            <h1 className="mb3">Add Contact</h1>
             <form onSubmit={this.saveForm.bind(this, value.dispatch)}>
               <div className="form-group">
                 <label htmlFor="name">Name:</label>

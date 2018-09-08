@@ -7,7 +7,8 @@ export default class Contacts extends Component {
     return (
       <Consumer>
         {value => (
-          <React.Fragment>
+          <React.Fragment>            
+            <h1 className="mb3">Contact List</h1>
             {value.contacts.map(contact => (
               <Contact key={contact.id} contact={contact} />
             ))}

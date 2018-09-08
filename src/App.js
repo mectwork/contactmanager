@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import "./App.css";
 import Header from "./components/layout/Header";
 import Contacts from "./components/contacts/Contacts";
@@ -9,13 +11,17 @@ class App extends Component {
   render() {
     return (
       <Provider>
-        <div className="App">
-          <Header />
-          <div className="container">
-            <AddContact />
-            <Contacts />
+        <BrowserRouter>
+          <div className="App">
+            <Header />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Contacts} />
+                <Route exact path="/contacts/add" component={AddContact} />
+              </Switch>
+            </div>
           </div>
-        </div>
+        </BrowserRouter>
       </Provider>
     );
   }
