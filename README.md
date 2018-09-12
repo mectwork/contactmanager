@@ -1,8 +1,8 @@
-#Contact Manager App
+# Contact Manager App
 
 A basic react app using Context Api.
 
-##Installation
+## Installation
 
 *Requires [Node.js](https://nodejs.org/) v4+ to run.
 ```sh
