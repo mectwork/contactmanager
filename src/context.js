@@ -11,14 +11,12 @@ const reducer = (state, action) => {
           contact => contact.id !== action.payload
         )
       }
-      break
     case 'ADD_CONTACT':
       action.payload.id = Math.floor(Math.random() * Math.floor(100000))
       return {
         ...state,
         contacts: [action.payload, ...state.contacts]
       }
-      break
     case 'EDIT_CONTACT':
       return {
         ...state,
@@ -29,11 +27,8 @@ const reducer = (state, action) => {
               : contact)
         )
       }
-      break
-
     default:
       return state
-      break
   }
 }
 
