@@ -1,65 +1,75 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-const Context = React.createContext();
+const Context = React.createContext()
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "DELETE_CONTACT":
+    case 'DELETE_CONTACT':
       return {
         ...state,
         contacts: state.contacts.filter(
           contact => contact.id !== action.payload
         )
-      };
-      break;
-    case "ADD_CONTACT":
-      action.payload.id = Math.floor(Math.random() * Math.floor(100000));
-      console.log(action.payload);
+      }
+      break
+    case 'ADD_CONTACT':
+      action.payload.id = Math.floor(Math.random() * Math.floor(100000))
       return {
         ...state,
         contacts: [action.payload, ...state.contacts]
-      };
-      break;
+      }
+      break
+    case 'EDIT_CONTACT':
+      return {
+        ...state,
+        contacts: state.contacts.map(
+          contact =>
+            (contact.id === action.payload.id
+              ? (contact = action.payload)
+              : contact)
+        )
+      }
+      break
 
     default:
-      return state;
-      break;
+      return state
+      break
   }
-};
+}
 
 export class Provider extends Component {
   state = {
     contacts: [
       {
         id: 1,
-        name: "John Doe",
-        email: "john@gmail.com",
-        phone: "123-456-789"
+        name: 'John Doe',
+        email: 'john@gmail.com',
+        phone: '123-456-789'
       },
       {
         id: 2,
-        name: "Sonya Smith",
-        email: "sonya@gmail.com",
-        phone: "789-789-789"
+        name: 'Sonya Smith',
+        email: 'sonya@gmail.com',
+        phone: '789-789-789'
       },
       {
         id: 3,
-        name: "Juan Perez",
-        email: "juan@gmail.com",
-        phone: "456-456-456"
+        name: 'Juan Perez',
+        email: 'juan@gmail.com',
+        phone: '456-456-456'
       }
     ],
     dispatch: action => {
-      this.setState(state => reducer(state, action));
+      this.setState(state => reducer(state, action))
     }
-  };
+  }
 
-  render() {
+  render () {
     return (
       <Context.Provider value={this.state}>
         {this.props.children}
       </Context.Provider>
-    );
+    )
   }
 }
-export const Consumer = Context.Consumer;
+export const Consumer = Context.Consumer
